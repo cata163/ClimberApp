@@ -1,0 +1,43 @@
+spring:
+  sql:
+    init:
+      mode: always
+  mvc:
+    servlet:
+      path: /api
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: ${datasource_url}
+    username: ${datasource_username}
+    password: ${datasource_password}
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      database: postgresql
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuerUri: https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_SCk2XXsFK
+aws:
+  s3:
+    bucket: hike-app-customer
+    timeout: 3600000
+  region: eu-central-1
+  access:
+    key: ${aws_access_key}
+  secret:
+    key: ${aws.secret.key}
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

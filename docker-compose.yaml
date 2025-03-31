@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres
+    container_name: hiker-container
+    restart: always
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: hiker
+    ports:
+      - 5433:5432
+
